@@ -23,7 +23,8 @@ public class AddressBookServiceImp implements AddressBookService {
 		System.out.println("1.) Find A Person");
 		System.out.println("2.) Create A Person");
 		System.out.println("3.) Update A Person");
-		System.out.println("4.) Exit");
+		System.out.println("4.) Delete A Person");
+		System.out.println("5.) Exit");
 		
 		int option = sc.nextInt();
 		switch(option) {	
@@ -41,7 +42,11 @@ public class AddressBookServiceImp implements AddressBookService {
 		case 3:
 			updateAPerson();
 			break;
+			
 		case 4:
+			deleteAPerson();
+			break;
+		case 5:
 			return;
 		default:
 			System.out.println("Invalid Input");
@@ -75,6 +80,18 @@ public class AddressBookServiceImp implements AddressBookService {
 			return;
 		}
 		System.out.println("Person Not Found");
+	}
+	@Override
+	public void deleteAPerson() {
+		System.out.println("Enter Person Name");
+		String name = sc.next();
+		PersonContact person = addressBook.isPerson(name);
+		if(Objects.nonNull(person)){
+			addressBook.deletePerson(name);
+			return;
+		}
+		System.out.println("Person Not Found");
+		
 	}
 
 

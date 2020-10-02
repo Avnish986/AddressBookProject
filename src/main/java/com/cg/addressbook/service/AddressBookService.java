@@ -5,5 +5,6 @@ public interface AddressBookService {
 	public void findAPerson();
 	public void showOptions(AddressBook addressBook);
 	public void updateAPerson();
+	public void deleteAPerson();
 
 }
