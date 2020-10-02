@@ -6,4 +6,6 @@ public interface PersonService {
 	public PersonContact createPerson();
 	
 	public void displayPerson(PersonContact personContact);
+	
+	public void updatePerson(PersonContact personContact);
 }
