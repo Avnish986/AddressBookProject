@@ -7,7 +7,7 @@ import com.cg.addressbook.service.PersonService;
 
 import java.util.*;
 public class AddressBookServiceImp implements AddressBookService {
-	private AddressBook addressBook = new AddressBook();
+	private AddressBook addressBook;
 	private PersonService personService;
 	private Scanner sc;
 	
@@ -92,6 +92,11 @@ public class AddressBookServiceImp implements AddressBookService {
 		}
 		System.out.println("Person Not Found");
 		
+	}
+	@Override
+	public AddressBook createAddressBook(String name) {
+		AddressBook addressBook= new AddressBook(name);
+		return addressBook;
 	}
 
 
