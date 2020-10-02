@@ -20,4 +20,12 @@ public class AddressBook {
 		}
 		return null;
 	}
+	public void  deletePerson(String firstName) {
+		for(int i=0 ; i<personContacts.size();i++) {
+			 if(personContacts.get(i).getFname().equalsIgnoreCase(firstName)) {
+				 	personContacts.remove(i);
+				 	return;
+			 }
+		}
+	}
 }
