@@ -6,24 +6,40 @@ import java.util.regex.Pattern;
 
 import com.cg.addressbook.dto.PersonContact;
 import com.cg.addressbook.service.PersonService;
-
+import com.cg.addressbook.exception.*;
+import com.cg.addressbook.validate.*;
 public class PersonServiceImp implements PersonService {
 private Scanner sc;
-	
+ContactValidate valid = new ContactValidate();	
 
 	
 	public PersonServiceImp(Scanner sc ) {
 		this.sc= sc;
 	}
 	
-	public PersonContact createPerson(){
+	public PersonContact createPerson() throws ContactException{
 		PersonContact personContact = new PersonContact();
-		
+		try {
 		System.out.print("Enter First Name");
+		
 		Scanner n = new Scanner(System.in);	
-		personContact.setFname(n.nextLine());
+		String fname= n.nextLine();
+		boolean isvalid = valid.validateFirstName(fname);
+		while(!isvalid) {
+			System.out.println("Invalid First Name, Enter the value again ");
+			fname = n.nextLine();
+			isvalid = valid.validateFirstName(fname);
+		}
+		personContact.setFname(fname);
 		System.out.print("Enter Last Name");
-		personContact.setLname(n.nextLine());
+		String lname= n.nextLine();
+		isvalid = valid.validateLastName(lname);
+		while(!isvalid) {
+			System.out.println("Invalid Last Name, Enter the value again ");
+			lname = n.nextLine();
+			isvalid = valid.validateLastName(lname);
+		}
+		personContact.setLname(lname);
 		System.out.print("Enter Address ");
 		personContact.setAddress(n.nextLine());
 		System.out.print("Enter City ");
@@ -31,12 +47,38 @@ private Scanner sc;
 		System.out.print("Enter State");
 		personContact.setState(n.nextLine());
 		System.out.print("Enter Zip");
-		personContact.setZip(n.nextLine());
+		String zip= n.nextLine();
+		isvalid = valid.validateZip(zip);
+		while(!isvalid) {
+			System.out.println("Invalid ZipCode  Enter the value again ");
+			zip = n.nextLine();
+			isvalid = valid.validateZip(zip);
+		}
+		personContact.setZip(zip);
 		System.out.print("Enter Phone");
-		personContact.setPhone(n.nextLine());
+		String phno= n.nextLine();
+		isvalid = valid.validatePhoneNumber(phno);
+		while(!isvalid) {
+			System.out.println("Invalid phNo  Enter the value again ");
+			phno = n.nextLine();
+			isvalid = valid.validatePhoneNumber(phno);
+		}
+		personContact.setPhone(phno);
 		System.out.print("Enter Email");
-		personContact.setEmail(n.nextLine());
+		String email= n.nextLine();
+		isvalid = valid.validateEmail(email);
+		while(!isvalid) {
+			System.out.println("Invalid email  Enter the value again ");
+			email = n.nextLine();
+			isvalid = valid.validateEmail(email);
+		}
+		personContact.setEmail(email);
 		return personContact;
+		}
+		catch(Exception e)
+		{
+			throw new ContactException("Invalid inputs");
+		}
 	}
 public void updatePerson(PersonContact personContact) {
 		
