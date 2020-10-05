@@ -2,6 +2,7 @@ package com.cg.addressbook.service.imp;
 
 import com.cg.addressbook.dto.AddressBook;
 import com.cg.addressbook.dto.PersonContact;
+import com.cg.addressbook.exception.ContactException;
 import com.cg.addressbook.service.AddressBookService;
 import com.cg.addressbook.service.PersonService;
 
@@ -65,7 +66,12 @@ public class AddressBookServiceImp implements AddressBookService {
 		
 	}
 	public void createAPerson(){
-		addressBook.addContact(personService.createPerson());
+		try {
+			addressBook.addContact(personService.createPerson());
+		} catch (ContactException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	public void display() {
 		addressBook.getAddressBook();
