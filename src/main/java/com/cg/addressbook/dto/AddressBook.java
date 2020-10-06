@@ -1,13 +1,18 @@
 package com.cg.addressbook.dto;
 import java.util.*;
+import java.util.function.Predicate;
 
 public class AddressBook {
-	private List<PersonContact> personContacts = new ArrayList<PersonContact>();
+	private static List<PersonContact> personContacts = new ArrayList<PersonContact>();
 	String name;
 	
 	public List<PersonContact> getAddressBook(){
 		 return this.personContacts;
 	 }
+	public AddressBook() {
+
+	}
+	
 	public AddressBook(String name) {
 		this.name = name;
 	}
@@ -26,6 +31,25 @@ public class AddressBook {
 	}
 	public String getName() {
 		return name;
+	}
+	
+
+//	Predicate<String> checkNameStream = n -> {
+//		for(PersonContact x:personContacts) {
+//			if(x.getFname().equalsIgnoreCase(n)) 
+//				 return true;
+//		}
+//		return false;
+//	};
+	public boolean checkName(String name) {
+//		for(PersonContact x:personContacts) {
+//			if(x.getFname().equalsIgnoreCase(name)) 
+//				 return true;
+//		}
+//		return false;
+		return personContacts.stream().anyMatch(x -> x.getFname().equalsIgnoreCase(name));
+		
+		
 	}
 
 	public void setName(String name) {

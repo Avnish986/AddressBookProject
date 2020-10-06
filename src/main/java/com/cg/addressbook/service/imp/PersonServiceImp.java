@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
+import com.cg.addressbook.dto.AddressBook;
 import com.cg.addressbook.dto.PersonContact;
 import com.cg.addressbook.service.PersonService;
 import com.cg.addressbook.exception.*;
@@ -12,7 +12,7 @@ public class PersonServiceImp implements PersonService {
 private Scanner sc;
 ContactValidate valid = new ContactValidate();	
 
-	
+	AddressBook addressbook = new AddressBook();
 	public PersonServiceImp(Scanner sc ) {
 		this.sc= sc;
 	}
@@ -24,6 +24,7 @@ ContactValidate valid = new ContactValidate();
 		
 		Scanner n = new Scanner(System.in);	
 		String fname= n.nextLine();
+		if(!addressbook.checkName(fname)) {
 		boolean isvalid = valid.validateFirstName(fname);
 		while(!isvalid) {
 			System.out.println("Invalid First Name, Enter the value again ");
@@ -73,6 +74,11 @@ ContactValidate valid = new ContactValidate();
 			isvalid = valid.validateEmail(email);
 		}
 		personContact.setEmail(email);
+		}
+		else
+		{
+			System.out.println("Already exist");
+		}
 		return personContact;
 		}
 		catch(Exception e)
@@ -170,6 +176,10 @@ public void updatePerson(PersonContact personContact) {
 		
 		
 	}
+	
+
+	
+	 
 
 }
 

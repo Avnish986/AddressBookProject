@@ -78,7 +78,23 @@ public class PersonContact {
     public void setEmail(String email) {
         this.email = email;
     }
-    
+//    @Override
+//    public boolean equals(Object obj) {
+//        if (obj == null) {
+//            return false;
+//        }
+//
+//        if (obj.getClass() != this.getClass()) {
+//            return false;
+//        }
+//
+//        final PersonContact other = (PersonContact) obj;
+//        if ((this.f_name == null) ? (other.f_name != null) : !this.f_name.equals(other.f_name)) {
+//            return false;
+//        }
+//
+//        return true;
+//    }
 	@Override
 	public String toString()
 	{
