@@ -69,7 +69,6 @@ public class AddressBookServiceImp implements AddressBookService {
 		try {
 			addressBook.addContact(personService.createPerson());
 		} catch (ContactException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
