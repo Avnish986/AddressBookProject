@@ -32,11 +32,13 @@ public class AddressBookMain {
 				System.out.println("Enter city name");
 				String city = sc.next();
 				System.out.println(addressBooks.searchByCity(city));
+				System.out.println(addressBooks.cityCount(city));
 				break;
 			case 4:
 				System.out.println("Enter state name");
 				String state = sc.next();
 				System.out.println(addressBooks.searchByState(state));
+				System.out.println(addressBooks.stateCount(state));
 				break;
 			case 5:
 				System.out.println("Bye\n\n");
