@@ -3,7 +3,7 @@ import java.util.*;
 import java.util.function.Predicate;
 
 public class AddressBook {
-	private static List<PersonContact> personContacts = new ArrayList<PersonContact>();
+	static List<PersonContact> personContacts = new ArrayList<PersonContact>();
 	String name;
 	
 	public List<PersonContact> getAddressBook(){
@@ -63,4 +63,5 @@ public class AddressBook {
 			 }
 		}
 	}
+	
 }

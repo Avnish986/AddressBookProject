@@ -16,7 +16,9 @@ public class AddressBookMain {
 		while (true) {
 			System.out.println("1.) Open an existing book");
 			System.out.println("2.) Create new Address Book");
-			System.out.println("3.) Exit");
+			System.out.println("3.) Search by city");
+			System.out.println("4.) Search by state");
+			System.out.println("5.) Exit");
 			int options = sc.nextInt();
 
 			switch (options) {
@@ -27,6 +29,16 @@ public class AddressBookMain {
 				createNewAddressBook(addressBookService, addressBooks, sc);
 				break;
 			case 3:
+				System.out.println("Enter city name");
+				String city = sc.next();
+				System.out.println(addressBooks.searchByCity(city));
+				break;
+			case 4:
+				System.out.println("Enter state name");
+				String state = sc.next();
+				System.out.println(addressBooks.searchByState(state));
+				break;
+			case 5:
 				System.out.println("Bye\n\n");
 				return;
 			default:
