@@ -5,6 +5,8 @@ import java.util.function.Predicate;
 public class AddressBook {
 	static List<PersonContact> personContacts = new ArrayList<PersonContact>();
 	String name;
+	public HashMap<String,List> cityDictionary = new HashMap<String,List>();
+	HashMap<String,List> stateDictionary = new HashMap<>();
 	
 	public List<PersonContact> getAddressBook(){
 		 return this.personContacts;

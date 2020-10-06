@@ -1,4 +1,6 @@
 package com.cg.addressbook.service.imp;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -11,7 +13,7 @@ import com.cg.addressbook.validate.*;
 public class PersonServiceImp implements PersonService {
 private Scanner sc;
 ContactValidate valid = new ContactValidate();	
-
+	
 	AddressBook addressbook = new AddressBook();
 	public PersonServiceImp(Scanner sc ) {
 		this.sc= sc;
@@ -44,9 +46,15 @@ ContactValidate valid = new ContactValidate();
 		System.out.print("Enter Address ");
 		personContact.setAddress(n.nextLine());
 		System.out.print("Enter City ");
-		personContact.setCity(n.nextLine());
+		String city = n.nextLine();
+		personContact.setCity(city);
+		List<PersonContact> cityList = addressbook.cityDictionary.getOrDefault(city,new ArrayList<PersonContact>());
+		cityList.add(personContact);
+		addressbook.cityDictionary.putIfAbsent(city,cityList);
+		//System.out.println(addressbook.cityDictionary.toString());
 		System.out.print("Enter State");
-		personContact.setState(n.nextLine());
+		String state = n.nextLine();
+		personContact.setState(state);
 		System.out.print("Enter Zip");
 		String zip= n.nextLine();
 		isvalid = valid.validateZip(zip);
