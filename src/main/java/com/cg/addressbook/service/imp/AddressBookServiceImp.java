@@ -25,9 +25,11 @@ public class AddressBookServiceImp implements AddressBookService {
 		System.out.println("2.) Create A Person");
 		System.out.println("3.) Update A Person");
 		System.out.println("4.) Delete A Person");
-		System.out.println("5.) View all Persons");
-		
-		System.out.println("6.) Exit");
+		System.out.println("5.) View all Persons storted by Names");
+		System.out.println("6.) View all Persons storted by City");
+		System.out.println("7.) View all Persons storted by State");
+		System.out.println("8.) View all Persons storted by Zip");
+		System.out.println("9.) Exit");
 		
 		int option = sc.nextInt();
 		switch(option) {	
@@ -57,6 +59,15 @@ public class AddressBookServiceImp implements AddressBookService {
 			}
 			break;
 		case 6:
+			System.out.println(addressBook.sortCity());
+			break;
+		case 7:
+			System.out.println(addressBook.sortState());
+			break;
+		case 8:
+			System.out.println(addressBook.sortZip());
+			break;
+		case 9:
 			return;
 		default:
 			System.out.println("Invalid Input");

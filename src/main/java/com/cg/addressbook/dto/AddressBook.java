@@ -18,6 +18,17 @@ public class AddressBook {
 	public List<PersonContact> showContact(){
 		return personContacts.stream().sorted((n1, n2) -> n1.getFname().compareTo(n2.getFname())).collect(Collectors.toList());
 	}
+	public List<PersonContact> sortCity(){
+		return personContacts.stream().sorted((n1,n2) -> n1.getCity().compareTo(n2.getCity())).collect(Collectors.toList());
+	}
+	
+	public List<PersonContact> sortState(){
+		return personContacts.stream().sorted((n1,n2) -> n1.getState().compareTo(n2.getState())).collect(Collectors.toList());
+	}
+	
+	public List<PersonContact> sortZip(){
+		return personContacts.stream().sorted((n1,n2) -> n1.getZip().compareTo(n2.getZip())).collect(Collectors.toList());
+	}
 	public AddressBook(String name) {
 		this.name = name;
 	}
