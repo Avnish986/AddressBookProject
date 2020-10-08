@@ -25,7 +25,9 @@ public class AddressBookServiceImp implements AddressBookService {
 		System.out.println("2.) Create A Person");
 		System.out.println("3.) Update A Person");
 		System.out.println("4.) Delete A Person");
-		System.out.println("5.) Exit");
+		System.out.println("5.) View all Persons");
+		
+		System.out.println("6.) Exit");
 		
 		int option = sc.nextInt();
 		switch(option) {	
@@ -48,6 +50,13 @@ public class AddressBookServiceImp implements AddressBookService {
 			deleteAPerson();
 			break;
 		case 5:
+			List<PersonContact> contact1 = new ArrayList<PersonContact>();
+			contact1=addressBook.showContact();
+			for(PersonContact i : contact1) {
+			System.out.println(i);
+			}
+			break;
+		case 6:
 			return;
 		default:
 			System.out.println("Invalid Input");

@@ -1,6 +1,7 @@
 package com.cg.addressbook.dto;
 import java.util.*;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class AddressBook {
 	static List<PersonContact> personContacts = new ArrayList<PersonContact>();
@@ -14,7 +15,9 @@ public class AddressBook {
 	public AddressBook() {
 
 	}
-	
+	public List<PersonContact> showContact(){
+		return personContacts.stream().sorted((n1, n2) -> n1.getFname().compareTo(n2.getFname())).collect(Collectors.toList());
+	}
 	public AddressBook(String name) {
 		this.name = name;
 	}
