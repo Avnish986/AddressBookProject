@@ -98,7 +98,7 @@ public class PersonContact {
 	@Override
 	public String toString()
 	{
-		return "First name "+f_name+"\nLast name "+l_name+"\n Address "+address+"\n city "
-	    +city+"\n state "+state+"\n Zip Code "+zip_code+"\n Phone No. "+ph_no+"\nemail "+email;
+		return " First name "+f_name+" Last name "+l_name+" Address "+address+" city "
+	    +city+" state "+state+" Zip Code "+zip_code+" Phone No. "+ph_no+" email "+email;
 	}
 }
