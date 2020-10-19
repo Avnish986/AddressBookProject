@@ -18,8 +18,11 @@ public class AddressBookIOServiceMain {
 		contactList.add(contact3);
 //		addressBookFileIOService.writeData(contactList);
 //		addressBookFileIOService.readData();
-		addressBookFileIOService.writeCSVData(contactList);
-		addressBookFileIOService.readCSVData();
+		//addressBookFileIOService.writeCSVData(contactList);
+		//addressBookFileIOService.readCSVData();
+		addressBookFileIOService.writeJsonData(contactList);
+		addressBookFileIOService.readJsonFile();
+		
 	}
 
 }
