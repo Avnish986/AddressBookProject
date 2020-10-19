@@ -1,13 +1,21 @@
 package com.cg.addressbook.dto;
-
+import com.opencsv.bean.CsvBindByName;
 public class PersonContact {
+	@CsvBindByName(column = "f_name")
 	private String f_name;
+	@CsvBindByName
 	private String l_name;
+	@CsvBindByName
 	private String address;
+	@CsvBindByName
 	private String city;
+	@CsvBindByName
 	private String state;
+	@CsvBindByName
 	private String zip_code;
+	@CsvBindByName
 	private String ph_no;
+	@CsvBindByName
 	private String email;
 	
 	public PersonContact() {
